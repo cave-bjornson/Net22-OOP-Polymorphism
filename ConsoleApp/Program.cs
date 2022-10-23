@@ -1,14 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using ShapeLibrary;
 
 namespace ConsoleApp
 {
-    public class Program
+    public static class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            Console.WriteLine("Hello Classic Template!");
+            var geometricShapes = new List<Geometry>
+            {
+                new Parallelogram(),
+                new Rectangle(),
+                new Square(),
+                new Ellipse(),
+                new Circle()
+            };
+
+            geometricShapes.ForEach(
+                shape => Console.WriteLine($"Area {shape.GetType().Name}: {shape.Area():N2}")
+            );
         }
     }
 }
